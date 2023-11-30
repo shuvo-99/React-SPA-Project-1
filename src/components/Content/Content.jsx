@@ -13,7 +13,7 @@ const Content = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4 px-10">
+    <div className="grid grid-cols-3 gap-4 px-10 py-10">
       <div className="col-span-2">
         {datas.map((data) => (
           <Blog key={data.id} data={data}></Blog>
