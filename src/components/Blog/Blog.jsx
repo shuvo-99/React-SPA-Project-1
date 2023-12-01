@@ -1,9 +1,13 @@
 import React from "react";
 import "./Blog.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 const Blog = (pros) => {
-  console.log(pros);
+  // console.log(pros);
   const { image, name, topic, time } = pros.data;
+  const addBookmark = pros.addBookmark;
+  const addTime = pros.addTime;
 
   return (
     <div className="blog px-2 border-b-2 mb-8">
@@ -19,10 +23,21 @@ const Blog = (pros) => {
             <p className="text-sm">Mar 14 (4 Days ago)</p>
           </div>
         </div>
-        <div className="row-span-4 text-right">{time} min read</div>
+        <div className=" row-span-4 text-right">
+          {time} min read{" "}
+          <span id="icon" onClick={() => addBookmark(topic)}>
+            <FontAwesomeIcon icon={faBookmark} />
+          </span>
+        </div>
         <div className="col-span-2 font-bold text-4xl">{topic}</div>
         <div className="col-span-2">#beginners #programming</div>
-        <div className="col-span-2">Mark as read</div>
+        <div
+          className="col-span-2"
+          onClick={() => addTime(time)}
+          style={{ color: "blue", textDecoration: "underline" }}
+        >
+          Mark as read
+        </div>
       </div>
       <br />
     </div>
